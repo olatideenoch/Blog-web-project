@@ -37,7 +37,7 @@ def load_user(user_id):
 class Base(DeclarativeBase):
     pass
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
-db = SQLAlchemy(model_class=Base)
+db = SQLAlchemy(app)
 db.init_app(app)
 
 gravatar = Gravatar(app,
@@ -263,3 +263,4 @@ def contact():
 
 if __name__ == "__main__":
     app.run(debug=False, port=5002)
+
