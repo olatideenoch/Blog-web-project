@@ -259,6 +259,10 @@ def contact():
         return render_template("contact.html", msg_sent=True)
     return render_template("contact.html", logged_in=current_user.is_authenticated, msg_sent=False)
 
+@app.route("/health")
+def health():
+    return jsonify(status="ok"), 200
+
 
 if __name__ == "__main__":
     app.run(debug=False, port=5002)
